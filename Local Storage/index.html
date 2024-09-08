@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+
+<body>
+    <span id="text"></span>
+</body>
+
+<script>
+    // // Set Item
+    // localStorage.setItem("Name", "Now No Regrets")
+    // localStorage.setItem("Email", "nownoregrets@gmail.com")
+    // localStorage.setItem("password", "admin@1234")
+    // // Get Item
+    // const name = localStorage.getItem("Name")
+    // const email = localStorage.getItem("Email")
+    // const password = localStorage.getItem("password")
+    // console.log(name);
+    // console.log(email);
+    // console.log(password);
+    // // Remove Item
+
+    // localStorage.removeItem("Email")
+    // // Clear
+    // localStorage.clear()
+
+
+    let user = {
+        name: "Now No Regrets",
+        email: "nownoregrets@gmail.com",
+        password: "admin@1234"
+    }
+
+    let userData = JSON.stringify(user)
+    console.log(userData);
+    
+    localStorage.setItem("User Data", userData)
+
+
+    const updatedUser = localStorage.getItem("User Data")
+    console.log(JSON.parse(updatedUser));
+    
+
+</script>
+
+</html>
