@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Chatbot Toggle Image -->
+    <img id="toggle-img" src="Chatbot Img.png" alt="Chat Icon">
+
+    <!-- Chatbot Window -->
+    <div class="chatbot-container" id="chatbot">
+        <div class="chatbot-header">
+            AI Assistant
+            <button class="close-btn" id="close-btn">&times;</button>
+        </div>
+        <div class="chatbot-body" id="chat-content">
+            <p><b>AI:</b> Hello! How can I assist you today?</p>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" class="form-control" id="user-input" placeholder="Type a message...">
+            <button id="generate" class="btn btn-primary">Send</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Chatbot Toggle JS -->
+    <script>
+        const toggleImg = document.getElementById("toggle-img");
+        const chatbot = document.getElementById("chatbot");
+        const closeBtn = document.getElementById("close-btn");
+        let isVisible = false;
+
+        toggleImg.addEventListener("click", function () {
+            isVisible = !isVisible;
+            chatbot.style.display = isVisible ? "flex" : "none";
+        });
+
+        closeBtn.addEventListener("click", function () {
+            chatbot.style.display = "none";
+            isVisible = false;
+        });
+
+        chatbot.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+    </script>
+
+    <!-- Install the Gemini API SDK -->
+    <script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
+    <!-- Import the library -->
+    <script type="module" src="chatbot.js"></script>
+</body>
+
+</html>
